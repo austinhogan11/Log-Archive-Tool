@@ -33,7 +33,11 @@ tar -czvf logs_archive_$(date +%Y%m%d_%H%M%S).tar.gz $LOG_DIRECTORY
 echo "Deleting Logs in $LOG_DIRECTORY"
 rm -rf $LOG_DIRECTORY/*
 
+# Copy all files in LOG_STORAGE_DIRECTORY ending in .tar.gz to s3 bucket
+# aws s3 cp $LOG_STORAGE_DIRECTORY/*.tar.gz s3://s3-bucket-name/logs/
 
+# Copy all files in lOG_STORAGE_DIRECTORY ending in .tar.gz to gcs bucket
+# gsutil cp $LOG_STORAGE_DIRECTORY/*.tar.gz gs://gcs-bucket-name/logs/
 
 
 
