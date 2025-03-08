@@ -29,7 +29,8 @@ cd $LOG_STORAGE_DIRECTORY
 echo "Compressing and Storing Logs in $LOG_STORAGE_DIRECTORY"
 tar -czvf logs_archive_$(date +%Y%m%d_%H%M%S).tar.gz $LOG_DIRECTORY
 
-# Copy logs to GCS Bucket
-echo "Copying Logs to GCS Bucket"
-gsutil cp logs_archive_$(date +%Y%m%d_%H%M%S).tar.gz gs://your-gcs-bucket-name/
+# Copy all files in lOG_STORAGE_DIRECTORY ending in .tar.gz to gcs bucket
+gsutil cp $LOG_STORAGE_DIRECTORY/*.tar.gz gs://gcs-bucket-name/logs/
+
+
 
